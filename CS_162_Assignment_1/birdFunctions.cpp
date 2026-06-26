@@ -15,3 +15,46 @@
 #include <iomanip>
 #include <cstdlib>
 using namespace std;
+
+//Name: loadBirds()
+//Desc: Reads birds from the input file into the array in sorted order
+//      by name. Stops at end-of-file or when the array is full.
+//input: An empty Bird array and the input file name as a c-string
+//output: None
+//return: int (number of birds loaded, or ERROR if the file won't open)
+int loadBirds(Bird birds[], const char filename[]) {
+    int count = 0;
+
+    return count;
+}
+
+//Name: addBird()
+//Desc: Prompts the user for a new bird's information, validates the
+//      number fields, then inserts the bird in sorted order.
+//input: The Bird array and the current count passed by reference
+//output: Prompts and confirmation messages to the screen
+//return: None
+void addBird(Bird birds[], int& count) {
+    Bird newBird;
+
+}
+
+//Name: printBirds()
+//Desc: Prints every bird in the array on its own line with a line
+//      number and aligned columns.
+//input: The Bird array and the current count
+//output: A formatted listing of all birds to the screen
+//return: None
+void printBirds(Bird birds[], int count) {
+
+}
+
+//Name: writeBirds()
+//Desc: Writes every bird in memory back to an output file, one bird
+//      per line, in the same semicolon-separated format as the input.
+//input: The Bird array, the current count, and the output file name
+//output: A saved data file
+//return: None
+void writeBirds(Bird birds[], int count, const char filename[]) {
+
+}
