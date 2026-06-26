@@ -23,7 +23,38 @@ using namespace std;
 //output: None
 //return: int (number of birds loaded, or ERROR if the file won't open)
 int loadBirds(Bird birds[], const char filename[]) {
+    ifstream inFile;
+    Bird newBird;
+    char weightStr[STR_SIZE] = "";
+    char sightStr[STR_SIZE] = "";
+    char rareStr[STR_SIZE] = "";
+    char headerLine[STR_SIZE] = "";
     int count = 0;
+
+    inFile.open(filename);
+
+    if(inFile.is_open()) {
+        inFile.getline(headerLine, STR_SIZE);
+
+        while (count < ARR_SIZE && inFile.getline(newBird.name, STR_SIZE, ';')) {
+            inFile.getline(newBird.location, STR_SIZE, ';');
+            inFile.getline(weightStr, STR_SIZE, ';');
+            inFile.getline(sightStr, STR_SIZE, ';');
+            inFile.getline(rareStr, STR_SIZE, ';');
+            inFile.getline(newBird.description, STR_SIZE);
+
+            newBird.weight = atof(weightStr);
+            newBird.sightings = atoi(sightStr);
+            newBird.rarity = atoi(rareStr);
+
+            insert(count, newBird, birds);
+            count++;
+        }
+        inFile.close();
+    }
+    else {
+        count = ERROR;
+    }
 
     return count;
 }
