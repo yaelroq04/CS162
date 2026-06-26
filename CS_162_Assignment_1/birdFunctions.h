@@ -1,3 +1,13 @@
+/******************************************************************************
+# Author: Yael Roque
+# Assignment: Assignment 1 - Structs Review (Bird Watching)
+# Date: 22/06/2026
+# Description: Declarations for the bird-watching program. Contains the
+#              Bird struct, program constants, and function prototypes.
+# Input: None (declarations only)
+# Output: None (declarations only)
+# Sources: Assignment 1 specifications
+#*****************************************************************************/
 #ifndef CS_162_ASSIGNMENT_1_BIRDFUNCTIONS_H
 #define CS_162_ASSIGNMENT_1_BIRDFUNCTIONS_H
 #include <fstream>
