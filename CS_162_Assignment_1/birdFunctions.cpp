@@ -59,6 +59,24 @@ int loadBirds(Bird birds[], const char filename[]) {
     return count;
 }
 
+//Name: insert()
+//Desc: Places a new bird into its correct sorted position by shifting
+//      the later birds up one slot to make room.
+//input: The current bird count, the bird to add, and the Bird array
+//output: None
+//return: None
+void insert(int count, Bird toAdd, Bird birds[]) {
+    int i = count;
+
+    if (count < ARR_SIZE) {
+        while (i > 0 && strcmp(birds[i - 1].name, toAdd.name) > 0) {
+            birds[i] = birds[i - 1];
+            i--;
+        }
+        birds[i] = toAdd;
+    }
+}
+
 //Name: addBird()
 //Desc: Prompts the user for a new bird's information, validates the
 //      number fields, then inserts the bird in sorted order.

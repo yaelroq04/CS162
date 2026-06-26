@@ -33,7 +33,7 @@ struct Bird {
 //Prototypes
 int loadBirds(Bird birds[], const char filename[]);
 void writeBirds(Bird birds[], int count, const char filename[]);
-void insert(Bird birds[], Bird toAdd, int count);
+void insert(int count, Bird toAdd, Bird birds[] );
 void addBird(Bird birds[], int& count);
 void printBirds(Bird birds[], int count);
 
