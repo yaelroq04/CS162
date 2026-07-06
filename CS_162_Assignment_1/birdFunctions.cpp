@@ -190,5 +190,26 @@ void printBirds(Bird birds[], int count) {
 //output: A saved data file
 //return: None
 void writeBirds(Bird birds[], int count, const char filename[]) {
+    ofstream outFile;
+    int i = 0;
 
+    outFile.open(filename);
+
+    if (outFile.is_open()) {
+        for (i = 0; i < count; i++) {
+            outFile << birds[i].name << ";"
+                    << birds[i].location << ";"
+                    << birds[i].weight << ";"
+                    << birds[i].sightings << ";"
+                    << birds[i].rarity << ";"
+                    << birds[i].description << endl;
+        }
+        outFile.close();
+        cout << endl << "The file " << filename
+             << " has been written." << endl;
+    }
+    else {
+        cout << endl << "The file " << filename
+             << " could not be written." << endl;
+    }
 }
