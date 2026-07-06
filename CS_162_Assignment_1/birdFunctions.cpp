@@ -85,7 +85,63 @@ void insert(int count, Bird toAdd, Bird birds[]) {
 //return: None
 void addBird(Bird birds[], int& count) {
     Bird newBird;
+    char weightStr[STR_SIZE] = "";
+    char sightStr[STR_SIZE] = "";
+    char rareStr[STR_SIZE] = "";
 
+    // Only prompt for a new bird if there is room in the array.
+    if (count < ARR_SIZE) {
+        cout << "What is the new bird's name: ";
+        cin.getline(newBird.name, STR_SIZE);
+
+        cout << "What is the location of the new bird: ";
+        cin.getline(newBird.location, STR_SIZE);
+
+        cout << "How much does the new bird weigh in ounces: ";
+        cin.getline(weightStr, STR_SIZE);
+        newBird.weight = atof(weightStr);
+
+        while (newBird.weight <= MIN_WEIGHT || newBird.weight > MAX_WEIGHT) {
+            cout << "Please enter a weight between " << MIN_WEIGHT
+                 << " and " << MAX_WEIGHT << ": ";
+            cin.getline(weightStr, STR_SIZE);
+            newBird.weight = atof(weightStr);
+        }
+
+        cout << "How many sightings are there: ";
+        cin.getline(sightStr, STR_SIZE);
+        newBird.sightings = atoi(sightStr);
+
+        while (newBird.sightings <= 0 || newBird.sightings > MAX_COUNT) {
+            cout << "Please enter a number between 1 and "
+                 << MAX_COUNT << ": ";
+            cin.getline(sightStr, STR_SIZE);
+            newBird.sightings = atoi(sightStr);
+        }
+
+        cout << "How rare on a scale of 1 to 10 is the new bird: ";
+        cin.getline(rareStr, STR_SIZE);
+        newBird.rarity = atoi(rareStr);
+
+        while (newBird.rarity <= 0 || newBird.rarity > 10) {
+            cout << "Please enter a number between 1 and 10 inclusive: ";
+            cin.getline(rareStr, STR_SIZE);
+            newBird.rarity = atoi(rareStr);
+        }
+
+        cout << "Please provide a short description of the new bird: ";
+        cin.getline(newBird.description, STR_SIZE);
+
+        insert(count, newBird, birds);
+        count++;
+
+        cout << endl << "The new bird was successfully added to the list."
+             << endl;
+    }
+    else {
+        cout << endl << "The bird list is full. No room to add a new bird."
+             << endl;
+    }
 }
 
 //Name: printBirds()
