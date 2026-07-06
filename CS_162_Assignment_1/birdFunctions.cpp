@@ -151,7 +151,36 @@ void addBird(Bird birds[], int& count) {
 //output: A formatted listing of all birds to the screen
 //return: None
 void printBirds(Bird birds[], int count) {
+    int i = 0;
 
+    cout << endl << "The birds in the database are:" << endl;
+    cout << left
+         << setw(4)  << " "
+         << setw(20) << "Name"
+         << setw(12) << "Location"
+         << setw(6)  << "oz."
+         << setw(7)  << "Sights"
+         << setw(5)  << "Rare"
+         << "Description" << endl;
+    cout << setw(4)  << " "
+         << setw(20) << "----"
+         << setw(12) << "--------"
+         << setw(6)  << "---"
+         << setw(7)  << "------"
+         << setw(5)  << "----"
+         << "-----------" << endl;
+
+    cout << fixed << showpoint << setprecision(1);
+
+    for (i = 0; i < count; i++) {
+        cout << setw(3) << (i + 1) << ": "
+             << setw(20) << birds[i].name
+             << setw(12) << birds[i].location
+             << setw(6)  << birds[i].weight
+             << setw(7)  << birds[i].sightings
+             << setw(5)  << birds[i].rarity
+             << birds[i].description << endl;
+    }
 }
 
 //Name: writeBirds()

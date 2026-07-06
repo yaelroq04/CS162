@@ -15,7 +15,7 @@
 //Constants
 const int STR_SIZE = 128;
 const int ARR_SIZE = 40;
-const int MAC_COUNT = 100;
+const int MAX_COUNT = 100;
 const int ERROR = -1;
 const double MIN_WEIGHT = 0.05;
 const double MAX_WEIGHT = 1600.0;
